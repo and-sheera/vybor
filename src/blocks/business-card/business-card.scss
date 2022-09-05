@@ -57,7 +57,7 @@
     }
   }
   &__tel {
-    font: 500 18px/1.3 $font;
+    font: 500 18px/1.4 $font;
     &:hover {
       text-decoration: none;
       color: $blue;
@@ -70,8 +70,10 @@
     }
   }
   &__mail {
-    font: 300 15px/1.3 $font;
+    display: inline-block;
+    font: 300 15px/1.4 $font;
     color: $blue;
+    text-decoration: underline;
     @include media-mobile {
       font-size: 13px;
     }
@@ -93,6 +95,9 @@
     }
     b {
       font-weight: 500;
+    }
+    p {
+      margin: 0;
     }
   }
 }

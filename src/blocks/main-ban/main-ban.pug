@@ -14,9 +14,9 @@ mixin main-ban(mods)
     .main-ban__slider
       .main-ban__wrapper.swiper-wrapper
         -for(let i = 0; i < 5; i++)
-          .main-ban__slide.swiper-slide
-            img.main-ban__img.main-ban__img--desktop(src='img/main-ban.webp', alt)
-            img.main-ban__img.main-ban__img--mobile(src='img/main-ban-mob.webp', alt)
+          picture.main-ban__slide.swiper-slide
+            source(srcset='img/main-ban-mob.webp' media='(max-width: 680px)')
+            img.main-ban__img(src='img/main-ban.webp' alt)
       .main-ban__button.main-ban__button--prev
       .main-ban__button.main-ban__button--next
     .main-ban__scrollbar

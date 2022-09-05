@@ -75,6 +75,9 @@
       text-decoration: underline;
       color: $blue;
     }
+    p {
+      margin: 0;
+    }
   }
   &__col-2 {
     display: grid;

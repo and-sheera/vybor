@@ -6,10 +6,11 @@ import styles from './gulp-tasks/styles.mjs'
 import scriptsTask from './gulp-tasks/scripts.mjs'
 import fonts from './gulp-tasks/fonts.mjs'
 import images from './gulp-tasks/images.mjs'
+import favicons from './gulp-tasks/favicons.mjs'
 import svgs from './gulp-tasks/svgs.mjs'
 import serve from './gulp-tasks/serve.mjs'
 
-const build = gulp.series(clean, pugMixins, gulp.parallel(pug2html, styles, scriptsTask, fonts, images, svgs))
+const build = gulp.series(clean, pugMixins, gulp.parallel(pug2html, styles, scriptsTask, fonts, images, favicons, svgs))
 
 const development = gulp.series(build, serve)
 const production = build

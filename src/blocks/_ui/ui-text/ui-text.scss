@@ -6,6 +6,9 @@
   &:not(:last-child) {
     margin-bottom: 15px;
   }
+  p {
+    margin: 0;
+  }
   .ui-ul,
   p {
     &:not(:last-child) {

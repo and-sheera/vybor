@@ -66,6 +66,9 @@
     @include media-mobile {
       font-size: 16px;
     }
+    p {
+      margin: 0;
+    }
   }
   &__wrapper {
     display: grid;
@@ -108,5 +111,9 @@
     &-curr {
       color: $blue;
     }
+  }
+  sup {
+    position: relative;
+    top: -0.4em;
   }
 }

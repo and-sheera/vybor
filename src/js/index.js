@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  loader()
   uiButton()
   header()
   footer()
@@ -18,9 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
   apartmentLayout()
 })
 
-window.addEventListener('load', function () {
-  $('.loader').fadeOut()
-})
+function loader() {
+  document.documentElement.style.overflow = 'hidden'
+  window.addEventListener('load', function () {
+    $('.loader').fadeOut(300)
+    document.documentElement.style.overflow = 'revert'
+  })
+}
 
 function uiButton() {
   const rippleButtons = [...document.querySelectorAll('.ui-button--ripple')]
