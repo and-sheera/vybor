@@ -1,0 +1,43 @@
+mixin product(data, mods)
+  -
+    const baseName = 'product'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.product(class=allMods)&attributes(attributes)
+    if data.topTitle
+      .product__title !{data.topTitle}
+    .product__img
+      img(src=data.img, alt)
+      if data.label
+        .product__label !{data.label}
+    .product__info
+      .product__container
+        .product__main
+          if data.topDescrXs
+            .product__descr-xs !{data.topDescrXs}
+          if data.date
+            .product__date !{data.date}
+          if data.title
+            .product__title !{data.title}
+          if data.botDescrXs
+            .product__descr-xs !{data.botDescrXs}
+          if data.descr
+            .product__descr !{data.descr}
+          if data.price
+              .product__price !{data.price}
+        if data.addition
+          .product__addition
+            if data.addition.topDescrXs
+              .product__descr-xs !{data.addition.topDescrXs}
+            if data.addition.price
+              .product__price !{data.addition.price}
+      if data.button
+        +ui-button(data.button, 'product, --link-arrow')
+    block

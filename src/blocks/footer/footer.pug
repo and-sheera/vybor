@@ -1,0 +1,188 @@
+-
+  let footerData = {
+    menu: [
+      {
+        name: 'Проекты',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Объекты',
+            link: '#',
+          },
+          {
+            name: 'Отделка',
+            link: '#',
+          },
+          {
+            name: 'Шоу-рум',
+            link: '#',
+          },
+          {
+            name: 'Реализованные',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Акции',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Текущие акции',
+            link: '#',
+          },
+          {
+            name: 'Спецпредложения',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Коммерция',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Продажа',
+            link: '#',
+          },
+          {
+            name: 'Аренда',
+            link: '#',
+          },
+          {
+            name: 'Паркинг',
+            link: '#',
+          },
+          {
+            name: 'Кладовые',
+            link: '#',
+          },
+          {
+            name: 'Участки',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'О компании',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Наша деятельность',
+            link: '#',
+          },
+          {
+            name: 'Награды',
+            link: '#',
+          },
+          {
+            name: 'Соцответственность',
+            link: '#',
+          },
+          {
+            name: 'Подразделения',
+            link: '#',
+          },
+          {
+            name: 'Информация',
+            link: '#',
+          },
+          {
+            name: 'Вопросы и ответы',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Ипотека',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'ВЫБОР. Ипотека',
+            link: '#',
+          },
+          {
+            name: 'Военная ипотека',
+            link: '#',
+          },
+          {
+            name: 'Семейная ипотека',
+            link: '#',
+          },
+          {
+            name: 'Материнский капитал',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Сервис',
+        link: '#',
+      },
+    ],
+    socials: [
+      {
+        icon: 'img/icon-mail.svg',
+        link: '#subscribe',
+      },
+      {
+        icon: 'img/icon-vk.svg',
+        link: 'https://vk.com/vyborstroiru/',
+      },
+      {
+        icon: 'img/icon-tg.svg',
+        link: 'https://t.me/vyborstroiru/',
+      },
+      {
+        icon: 'img/icon-yt.svg',
+        link: 'https://www.youtube.com/channel/UChw_Lee2dycKJcPI2_n6_Bg',
+      },
+    ],
+  }
+
+footer.footer
+  .inner
+    .footer__top
+      ul.footer__menu
+        each block in footerData.menu
+          li.footer__block
+            .footer__heading(class=(block.innerMenu ? 'footer__heading--arrow' : ''))
+              a.footer__link(href=block.link) !{block.name}
+            if block.innerMenu
+              ul.footer__list
+                each item in block.innerMenu
+                  li.footer__item
+                    a.footer__link(href=item.link) !{item.name}
+      .footer__address
+        a.footer__address-link(href='#') Офисы продаж
+        .footer__address-txt.footer__address-txt--blue Коминтерновский район
+        .footer__address-txt ул. Вл. Невского, 19
+      .footer__connect
+        .footer__tel
+          a.footer__tel-link(href='tel:88005338129') 8 800 533 8 129
+          .footer__tel-descr бесплатно по России
+        .footer__call
+          .footer__call-title График работы call-центра:
+          .footer__call-schedule
+            p пн-чт: 09:00 - 18:00; пт: 09:00 - 17:00
+            p сб: 10:00 - 17:00; вс: выходной
+        .footer__socials
+          each item in footerData.socials
+            a.footer__social(href=item.link)
+              img(src=item.icon, alt='')
+    .footer__bottom
+      .footer__made Продвижение сайта
+        a.footer__made-logo(href='https://promo01.ru/' target='_blank')
+          img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAWCAYAAAAIAZSVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAURSURBVHgB7VpNTmM5EK6EgJAQKCuExM+4d73rcIJ5uQFzAsIJmlnNMnCCEScg7GbZLGfFywkaTjAefiR2nQix4q+/L7GD4/j9JHm9SHc+yXp+drle2VUuVzkpSQKqwNra2v7b21uE1xqKMl0dlMbDw0N7eXm5en9/r2WOmcWC30DFr6+v/7W0tPQPXvdQPrLZIVl+fX39F/0fK5XKBcil2+22ZY6ZRMl92djYUIuLixfyvtuDgAEc8Fkul09Nk356eqrPvcHsoWwr3PlGgZPs5p7h0IBkjplCxVZWV1e/osQ3NzeN7e1tNu3LeOgZAexotwOkEYL/m9+2sLDwQQNu29bW1lGpVGr6tJCxFODZkr7MnEPdtP1HuRDHHN/e3h55vCPwvvD5gLYO2tht29zcbDjeztJdohzc3d1dSniO5B2Z1xZkOkig68loaVy5smSxa+a2hdaG2NnZaYLfoQwf530PgI82jRBU/imNAPUzGR8KgeOh/AKAkmpYdBp8NanfeY3kx8qi0vqh0waUfySe8oky3TYYHDltUxkBPvQ5aVECaDGeYMnyGpbOxh9FAvM/trwR2OoM2kPM8cS8VldWVvZ8GqVUFTTuGqgx1mRsQKYsb237tVm/L7ajArcdBQb0jgFzHHzBoCHhMSbmE4FfUBmcbJZCCfBtw4W2JAfy0k0CyBGDf5yHFrv+/Pr6WsOl7ntKHuD5+bkGpbDKNejRwFAUluRSCgZ3t2QE7Q44zxY8Pjd9z3AZAyRZTwNnSxtKjnHWRG4H2qK0r7y8vND9aSkQPBv5xOLqtGyDSrG0mCR3omQBSq1hDMd2ks70wHcGyg0gMk/yUqZE5r1oNGUK0ABUGgGV7wdAOaDFcTNFwAZGkIdep5VCR+OzQZTkAej+5o5FaeE184ihi4eRK0mW4ZPhe4X6/xyCNfwkBYMbEXxVDlLrjUdoMw1gQij5SQEPdEjPYt9R1z4NgzIaHwr7qjQu1GtSMKB8u/tjSQ80z6V/qReZrGMgf1lmBEx5WBB/ZHmW2NJK/mNoz4z5M4sQyvwsTlDlp2kmAKwZ2ktjBJmR+oRQ0g/sUoN1xHIteQ/oOWZgAPQAWorfsVoKhn9HkIfW3GdkAkrq5uXP/B/KpEvVMJhjv98JAKn0U1sHqoipanljjLwwGVxpjCHcQF0xRkwDsIHKCOBivmGSV6FoH32RJAeQWn5SIE38I81YGFA6sYfyuukZijQAje+1EY9EaUTmhtbqqgX5dq1hllFJuvo9g+s4D0X8+GDM1ClhnA2mCgXvJmyBm1VSIHjb6PDfkymAxf3dPOn+6yw8Csx30uIAns+n5ogZyJUx1ziP58KxaXl2qFO3rwIL4mVM08tpz8wdAKP/RoBnaqRMq5Ti0bAVuFmeZ1qKQ2QrWAdG7RNnMDYABNo2PsA6XuFRs9lBApSMrnWEubJdhwZAbyeSD9aoR+ZVgQF1kAOfOHfuWcpPBW/VclhlbGh1Bi9taV2YHHyEFu0xUy+Hjue1Dn2HPNAeJ3xzCDDojpUj64LLyBZ7vFn/Td7TMfFlDMhRC100ubI8Pj5qv82HuRMhnbYG465r7yAwee1XVNt5lB/4OdiCgdEujUrmmAr2x6TQD0JFopcGUmFQXH2anS995dfnyp8tDKUPjidQaYNCfwgxytcyx0xh6CKIuxde4AN/P5d86JDWuH0tc8wcEi8QmH6Y/JL5o5J3r8Bgy/5s2pm7/NnGd0pnniHKkYThAAAAAElFTkSuQmCC', alt)
+      .footer__copyright
+        p © ООО Специализированный застройщик «ВЫБОР» 1997—2022.
+          =' '
+          a.text-blue(href='/sitemap') Карта сайта
+          ='. '
+          a.text-blue(href='#') Политика конфиденциальности и Cookie
+        p Все права защищены. Представленная на сайте информация, в том числе цены, не являются публичной офертой.
+          br
+          | Запрещено использование материалов сайта без согласия его авторов и ссылки на сайт
+          =' '
+          a.text-blue(href='/') www.vyborstroi.ru
+  +ui-scroll-top

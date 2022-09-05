@@ -1,0 +1,27 @@
+mixin apartment-layout(mods)
+  -
+    const baseName = 'apartment-layout'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .apartment-layout(class=allMods)&attributes(attributes)
+    .apartment-layout__head
+      .apartment-layout__tabs
+        .apartment-layout__tab.apartment-layout__tab--active(data-tab='pos1') Позиция 1
+        .apartment-layout__tab(data-tab='pos2') Позиция 2
+      .apartment-layout__tabs
+        .apartment-layout__tab.apartment-layout__tab--active(data-tab='pos1') Подъезд 1
+        .apartment-layout__tab(data-tab='pos2') Подъезд 2
+      .apartment-layout__tabs
+        .apartment-layout__tab.apartment-layout__tab--active(data-tab='pos1') 1 этаж
+        .apartment-layout__tab(data-tab='pos2') 2-17 этажи
+    .apartment-layout__main
+      .apartment-layout__content.apartment-layout__content--active(data-content='pos1') Контент 1
+      .apartment-layout__content(data-content='pos2') Контент 2
+    block

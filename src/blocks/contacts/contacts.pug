@@ -1,0 +1,115 @@
+mixin contacts(mods)
+  -
+    const baseName = 'contacts'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data1 = [
+      {
+        img: 'img/contacts-1.svg',
+        tel: '8 800 533 8 127',
+        telDescr: 'бесплатно по России',
+      },
+      {
+        img: 'img/contacts-2.svg',
+        title: 'График работы:',
+        descr: '<p>пн-пт: <b>08:00 - 20:00</b></p> <p>сб-вс: <b>09:00 - 18:00</b></p>',
+      },
+    ]
+
+    const data2 = [
+      {
+        img: 'img/contacts-3.svg',
+        title: '	Адрес:',
+        descr: '394088, Воронеж, ул. Владимира Невского, 19',
+      },
+      {
+        img: 'img/contacts-2.svg',
+        title: 'График работы:',
+        descr: '<p>пн-пт: <b>08:00 - 20:00</b></p> <p>сб-вс: <b>09:00 - 18:00</b></p> <p>вс: <b>выходной</b></p>',
+      },
+      {
+        img: 'img/contacts-1.svg',
+        tel: '8 800 533 8 127',
+        telDescr: 'бесплатно по России',
+      },
+    ]
+
+    const data3 = [
+      {
+        img: 'img/contacts-ava.webp',
+        isAva: true,
+        name: 'Орловская Алёна',
+        descr: 'Менеджер отдела продаж',
+      },
+      {
+        img: 'img/contacts-1.svg',
+        tel: '8 800 533 8 127',
+      },
+      {
+        img: 'img/contacts-2.svg',
+        title: 'График работы:',
+        descr: '<p>пн-пт: <b>08:00 - 20:00</b></p> <p>сб-вс: <b>09:00 - 18:00</b></p> <p>вс: <b>выходной</b></p>',
+      },
+      {
+        img: 'img/contacts-4.svg',
+        title: 'E-mail:',
+        descr: '<a href="mailto:info@vyborstroi.ru">info@vyborstroi.ru</a>',
+      },
+    ]
+
+  .contacts(class=allMods)&attributes(attributes)
+    +accordion('contacts')
+      +accordion-item('CALL-центр')
+        +contacts__info(data1)
+    +ui-h4('Офисы продаж жилой и коммерческой недвижимости в Воронеже', 'contacts')
+    +accordion('contacts')
+      +accordion-item('Коминтерновский район')
+        .contacts__col-2
+          +contacts__info(data2, '--column')
+          +slider('--per-view-1')
+            -for(i=0; i<4; i++)
+              +slider__img('img/gallery_img-small.webp', 'img/gallery_img-big.webp')(data-fancybox='gallery-3')
+        .contacts__map
+          iframe(src='https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=1382809400' width='100%' height='100%' frameborder='0')
+        +contacts-workers('contacts')
+    +ui-h4('Коммерческая недвижимость', 'contacts')
+    +accordion('contacts')
+      +accordion-item('Продажа')
+        +contacts__info(data3)
+    block
+
+mixin contacts__info(data, mods)
+  -
+    const baseName = 'contacts__info'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .contacts__info(class=allMods)&attributes(attributes)
+    each item in data
+      .contacts__item
+        .contacts__img(class=item.isAva ? 'contacts__img--ava' : '')
+          img(src=item.img, alt)
+        .contacts__text
+          if item.tel
+            a.contacts__tel(href=`tel:${item.tel}`) !{item.tel}
+          if item.telDescr
+            .contacts__tel-descr !{item.telDescr}
+          if item.name
+            .contacts__title.contacts__title--blue !{item.name}
+          if item.title
+            .contacts__title !{item.title}
+          if item.descr
+            .contacts__descr !{item.descr}

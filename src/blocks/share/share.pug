@@ -1,0 +1,28 @@
+mixin share(mods)
+  -
+    const baseName = 'share'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      {
+        icon: 'img/vk-logo.svg',
+        href: '#',
+      },
+      {
+        icon: 'img/ok-logo.svg',
+        href: '#',
+      },
+    ]
+
+  .share(class=allMods)&attributes(attributes)
+    each item in data
+      a.share__item(href=item.href)
+        img(src=item.icon, alt)
+    block

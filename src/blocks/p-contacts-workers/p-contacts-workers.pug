@@ -1,0 +1,19 @@
+mixin p-contacts-workers(mods)
+  -
+    const baseName = 'p-contacts-workers'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .p-contacts-workers(class=allMods)&attributes(attributes)
+    .p-contacts-workers__img
+      img(src='img/p-contacts-workers.webp' alt)
+    .p-contacts-workers__name Орловская Алёна
+    .p-contacts-workers__best
+      span Лучший менеджер месяца
+    block

@@ -1,0 +1,49 @@
+mixin ui-table(mods)
+  -
+    const baseName = 'ui-table'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-table(class=allMods)&attributes(attributes)
+    table
+      thead
+        tr
+          th ОБЪЕКТ
+          th НОМЕР ПОМЕЩЕНИЯ
+          th СТОИМОСТЬ, РУБ.
+      tbody
+        tr
+          td Парковочные места (1 уровень)
+          td 6, 17, 19, 20, 25, 26, 32
+          td 500 000
+        tr
+          td Парковочные места (1 уровень)
+          td 11, 21, 22, 23, 24, 27, 28, 29, 30, 34, 35, 38, 39, 40, 41
+          td 690 000
+        tr
+          td Парковочные места (2уровень)
+          td 64, 65
+          td 480 000
+        tr
+          td Парковочные места (2уровень)
+          td 55, 56, 57, 58, 59, 60, 67, 68, 70, 71, 72, 75, 76, 77, 78, 81, 83, 84, 87, 88, 89, 90
+          td 650 000
+        tr
+          td Парковочные места (2уровень)
+          td 61, 85
+          td 690 000
+        tr
+          td Парковочные места (2уровень)
+          td 69, 80, 86, 91
+          td 990 000
+        tr
+          td Парковочные места (2уровень)
+          td 79
+          td 1 200 000
+    block

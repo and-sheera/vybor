@@ -1,0 +1,53 @@
+mixin catalog-item(mods, withPopup)
+  -
+    const baseName = 'catalog-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.catalog-item(class=allMods href='#')&attributes(attributes)
+    .catalog-item__head
+      .catalog-item__logo
+        img(src='img/catalog_logo.webp', alt)
+      .catalog-item__name
+        p г. Воронеж, ул. Димитрова, дом 51а, кв. 135
+        p Позиция №1
+        p
+          i  II кв. 2022
+    .catalog-item__wrapper
+      .catalog-item__features
+        .catalog-item__feature Кол-во комнат –
+          =' '
+          span.catalog-item__val 3
+        .catalog-item__feature Номер квартиры –
+          =' '
+          span.catalog-item__val 1
+        .catalog-item__feature Подъезд –
+          =' '
+          span.catalog-item__val 1
+        .catalog-item__feature Этаж –
+          =' '
+          span.catalog-item__val 1
+        .catalog-item__feature Отделка –
+          =' '
+          span.catalog-item__val чистовая
+        .catalog-item__feature Площадь, м
+          sup 2
+          | –
+          =' '
+          span.catalog-item__val 86.3/46.4/13.5
+      if withPopup
+        .catalog-item__layout(href='img/catalog_layout.webp' data-fancybox-single)
+          img(src='img/catalog_layout.webp' alt)
+      else
+        .catalog-item__layout
+          img(src='img/catalog_layout.webp' alt)
+      .catalog-item__price
+        .catalog-item__price-old 7 767 000 ₽
+        .catalog-item__price-curr 7 650 000 ₽
+    block

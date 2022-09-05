@@ -1,0 +1,16 @@
+mixin vr-tour(mods)
+  -
+    const baseName = 'vr-tour'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.vr-tour(class=allMods)&attributes(attributes)
+    img(src='img/vr-tour.webp' alt)
+    +ui-button('Посмотреть', 'vr-tour')
+    block

@@ -1,0 +1,59 @@
+block variables
+include ../blocks/mixins
+
+doctype html
+html(lang='ru')
+  block head
+    head
+      meta(charset='utf-8')
+      title=pageTitle
+      meta(content='width=device-width, initial-scale=1' name='viewport')
+      meta(content='ie=edge' http-equiv='x-ua-compatible')
+      link(href='.' rel='icon' type='image/x-icon')
+      link(rel='stylesheet' href='styles/style.css')
+      link(rel='stylesheet' href='blocks/main-ban/main-ban.css')
+      link(rel='stylesheet' href='blocks/product/product.css')
+      link(rel='stylesheet' href='blocks/product-list/product-list.css')
+      link(rel='stylesheet' href='blocks/cover/cover.css')
+      link(rel='stylesheet' href='blocks/slider/slider.css')
+      link(rel='stylesheet' href='blocks/documents/documents.css')
+      link(rel='stylesheet' href='blocks/share/share.css')
+      link(rel='stylesheet' href='blocks/navigation/navigation.css')
+      link(rel='stylesheet' href='blocks/tabs/tabs.css')
+      link(rel='stylesheet' href='blocks/benefits/benefits.css')
+      link(rel='stylesheet' href='blocks/catalog/catalog.css')
+      link(rel='stylesheet' href='blocks/catalog-item/catalog-item.css')
+      link(rel='stylesheet' href='blocks/quotes/quotes.css')
+      link(rel='stylesheet' href='blocks/partners/partners.css')
+      link(rel='stylesheet' href='blocks/business-card/business-card.css')
+      link(rel='stylesheet' href='blocks/form/form.css')
+      link(rel='stylesheet' href='blocks/map/map.css')
+      link(rel='stylesheet' href='blocks/accordion/accordion.css')
+      link(rel='stylesheet' href='blocks/pagination/pagination.css')
+      link(rel='stylesheet' href='blocks/contacts/contacts.css')
+      link(rel='stylesheet' href='blocks/contacts-workers/contacts-workers.css')
+      link(rel='stylesheet' href='blocks/popup/popup.css')
+      link(rel='stylesheet' href='blocks/p-contacts-workers/p-contacts-workers.css')
+      link(rel='stylesheet' href='blocks/video-reviews/video-reviews.css')
+      link(rel='stylesheet' href='blocks/flat/flat.css')
+      link(rel='stylesheet' href='blocks/cookies/cookies.css')
+      link(rel='stylesheet' href='blocks/vr-tour/vr-tour.css')
+      link(rel='stylesheet' href='blocks/apartment-layout/apartment-layout.css')
+      link(rel='stylesheet' href='blocks/page-404/page-404.css')
+  body
+    .wrapper
+      +loader
+      block header
+        include ../blocks/header/header
+      block content
+      block footer
+        include ../blocks/footer/footer
+    block scripts
+      script(src='libs/jquery/jquery-3.6.0.min.js')
+      script(src='libs/fancybox/fancybox.js')
+      script(src='libs/swiper/swiper-bundle.js')
+      script(src='libs/select2/select2.js')
+      script(src='libs/ion-rangeslider/ion-rangeslider.js')
+      script(src='libs/dropzone/dropzone.js')
+      script(src='libs/plyr/plyr.js')
+      script(src='js/index.js')

@@ -1,0 +1,25 @@
+mixin cookies(mods)
+  -
+    const baseName = 'cookies'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .cookies(class=allMods)&attributes(attributes)
+    .inner
+      .cookies__text
+        p Мы используем файлы cookies, чтобы сайт vyborstroi.ru стал для вас удобнее. Используя наш сайт, вы соглашаетесь на их использование. Чтобы узнать подробности, вы можете ознакомиться с нашей
+          =' '
+          a.text-blue(href='#') Политикой использования файлов Cookies
+          | . 13 января 2020 мы обновили наше
+          =' '
+          a.text-blue(href='#') Положение об обработке и защите персональных данных
+          | .
+        p Если вы отказываетесь от использования файлов cookie, отключите их, изменив настройки вашего браузера.
+      +ui-button('Согласен(а)', '--white, --xs')
+    block

@@ -1,0 +1,20 @@
+mixin ui-range(fromLabel, toLabel, mods)
+  -
+    const baseName = 'ui-range'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-range(class=allMods)
+    .ui-range__head
+      .ui-range__descr !{fromLabel}
+        span.ui-range__val.ui-range__val--from
+      .ui-range__descr !{toLabel}
+        span.ui-range__val.ui-range__val--to
+    .ui-range__input
+      input(type='text')&attributes(attributes)

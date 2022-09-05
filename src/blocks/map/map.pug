@@ -1,0 +1,19 @@
+mixin map(mods)
+  -
+    const baseName = 'map'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .map(class=allMods)&attributes(attributes)
+    +ui-h4('Подробная информация:', 'map, --medium')
+    a.map__tel(href='tel:88005338130') 8 800 533 8 130
+    .map__descr бесплатно по России
+    .map__frame
+      script(type='text/javascript', charset='utf-8', async, src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae24449cf9cd782db89bec93bd64e57b1e69a7846ce4014a381678d99a91ffccb&lang=ru_RU&scroll=true')
+    block

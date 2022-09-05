@@ -1,0 +1,71 @@
+mixin form(mods)
+  -
+    const baseName = 'form'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  form.form(class=allMods)&attributes(attributes)
+    .form__col
+      .form__item
+        .form__label Ф.И.О.
+          =' '
+          span.form__required *
+        +ui-input('name', 'form')(placeholder='Представьтесь')
+      .form__item
+        .form__label Ваш телефон
+          =' '
+          span.form__required *
+        +ui-input('tel', 'form', 'tel')
+      .form__item
+        .form__label E-mail
+          =' '
+          span.form__required *
+        +ui-input('email', 'form', 'email')(placeholder='example@mail.com')
+      .form__item
+        .form__label Загрузите фото или архив файлов
+        +ui-drop-file('Перетащите файлы сюда', 'form')(data-max-file-size='10')
+        .form__file-descr Макс. допустимый размер загружаемых файлов 10 Мб.
+    .form__col
+      .form__item
+        .form__label Объект
+          =' '
+          span.form__required *
+        +ui-select('form', '', 'ЖК Дмитровский', 'ЖК Жемчужный', 'ЖК Дмитровский', 'ЖК Жемчужный', 'ЖК Дмитровский', 'ЖК Жемчужный', 'ЖК Дмитровский', 'ЖК Жемчужный', 'ЖК Дмитровский', 'ЖК Жемчужный', 'ЖК Дмитровский', 'ЖК Жемчужный', 'ЖК Дмитровский', 'ЖК Жемчужный')(data-placeholder='Выберите из списка')
+      .form__item
+        .form__address
+          .form__item
+            .form__label Улица
+              =' '
+              span.form__required *
+            +ui-input('street', 'form')
+          .form__item
+            .form__label № дома
+              =' '
+              span.form__required *
+            +ui-input('house', 'form')
+          .form__item
+            .form__label № кв.
+              =' '
+              span.form__required *
+            +ui-input('flat', 'form')
+      .form__item
+        .form__label Текст обращения
+          =' '
+          span.form__required *
+        +ui-textarea#appeal(placeholder='Укажите адрес Вашей квартиры и изложите суть обращения (не более 3 000 символов)')
+    .form__subm
+      +ui-button('Отправить', 'form')
+      +ui-checkbox('agree', 'Согласен с ', 'form')
+        =' '
+        a(href='#') политикой конфиденциальности
+      .form__legend
+        span.form__required *
+        =' '
+        | — обязательное поле
+    block

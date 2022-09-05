@@ -1,0 +1,25 @@
+mixin page-404(mods)
+  -
+    const baseName = 'page-404'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .page-404(class=allMods)&attributes(attributes)
+    .page-404__img
+      img(src='img/404.webp' alt)
+    .page-404__info
+      .page-404__title 404
+      .page-404__subtitle Страница не найдена
+      +ui-ul('', 'page-404')
+        li Не волнуйтесь!
+        li Посмотрите на милейших каланов...
+        li Улыбнитесь!
+        li Воспользуйтесь поиском в шапке сайта или
+      +ui-button('Перейти на главную', 'page-404')(href='/')
+    block

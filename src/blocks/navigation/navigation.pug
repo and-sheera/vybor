@@ -1,0 +1,17 @@
+mixin navigation(mods)
+  -
+    const baseName = 'navigation'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .navigation(class=allMods)&attributes(attributes)
+    a.navigation__link.navigation__link--prev(href='#') Предыдущая
+    +ui-button('К списку новостей', 'navigation, --empty')(href='#')
+    a.navigation__link.navigation__link--next(href='#') Следующая
+    block

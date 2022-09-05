@@ -1,0 +1,46 @@
+mixin loader(mods)
+  -
+    const baseName = 'loader'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .loader(class=allMods)&attributes(attributes)
+    .loader__plane
+      .loader__cube.loader__cube--0
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--0
+      .loader__cube.loader__cube--1
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--1
+      .loader__cube.loader__cube--2
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--2
+      .loader__cube.loader__cube--3
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--3
+      .loader__cube.loader__cube--4
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--4
+      .loader__cube.loader__cube--5
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--5
+      .loader__cube.loader__cube--6
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--6
+      .loader__cube.loader__cube--7
+        -for(let i=0; i<6; i++)
+          .loader__cube-side
+      .loader__shadow.loader__shadow--7

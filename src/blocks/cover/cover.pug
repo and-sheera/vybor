@@ -1,0 +1,39 @@
+mixin cover(src, label, mods)
+  -
+    const baseName = 'cover'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  if (attributes.href)
+    a.cover(class=allMods)&attributes(attributes)
+      if label
+        .cover__label !{label}
+      img(src=src, alt)
+      block
+
+  else
+    .cover(class=allMods)&attributes(attributes)
+      if label
+        .cover__label !{label}
+      img(src=src, alt)
+      block
+
+mixin cover__caption(text, mods)
+  -
+    const baseName = 'cover__caption'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .cover__caption(class=allMods)&attributes(attributes) !{text}

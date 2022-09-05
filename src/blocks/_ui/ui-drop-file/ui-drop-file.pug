@@ -1,0 +1,15 @@
+mixin ui-drop-file(text, mods)
+  -
+    const baseName = 'ui-drop-file'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-drop-file(class=allMods)&attributes(attributes)
+    .ui-drop-file__button !{text}
+    block

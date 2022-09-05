@@ -1,0 +1,39 @@
+mixin business-card(mods)
+  -
+    const baseName = 'business-card'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .business-card(class=allMods)&attributes(attributes)
+    +ui-text('', 'business-card')
+      p Уважаемые собственники квартир!
+      p Для вашего удобства в нашей компании работает специальный отдел, сотрудники которого остаются с вами на связи в момент принятия вами квартиры и на протяжении срока гарантийного обслуживания. Связаться с ними можно, заполнив форму в данном разделе.
+      p Благодарим вас за то, что выбираете для жизни наши объекты!
+    -for(let i=0; i<2; i++)
+      .business-card__item
+        .business-card__top
+          .business-card__img
+            img(src='img/business-card.webp', alt)
+          .business-card__info
+            .business-card__name Теплякова Людмила
+            .business-card__job Менеджер по гарантийному обслуживанию и сервису
+            a.business-card__tel(href='tel:88005339051') 8 800 533 9 051
+              =' '
+              span.business-card__tel-xs (доб. 3)
+            .business-card__tel-descr бесплатно по России
+            a.business-card__mail(href='mailto:service@vyborstroi.ru') service@vyborstroi.ru
+            .business-card__address Коминтерновский р-н
+              br
+              | ул. Вл. Невского, 19
+        .business-card__shedule
+          p <b>График работы:</b>
+          p пн-чт: <b>9:00 – 18:00</b> перерыв: <b>13:00 – 14:00</b>
+          p пт: <b>9:00 – 17:00</b> перерыв: <b>13:00 – 14:00</b>
+          p сб-вс: <b>выходной</b>
+    block

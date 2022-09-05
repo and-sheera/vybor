@@ -1,0 +1,78 @@
+mixin flat(mods)
+  -
+    const baseName = 'flat'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .flat(class=allMods)&attributes(attributes)
+    .flat__preview
+      +slider('flat, --per-view-1')
+        -for(let i=0; i<3; i++)
+          a.flat__img.swiper-slide(href='img/flat-1-big.webp' data-fancybox='gallery-3')
+            img(src='img/flat-1-big.webp' alt)
+      .flat__pagination
+        .flat__pagination-item(data-to-slide=1) Планировка
+        .flat__pagination-item(data-to-slide=2) На этаже
+        .flat__pagination-item(data-to-slide=3) На генплане
+    .flat__main
+      .flat__title г. Воронеж, ул. Димитрова, дом 51а, кв. 125
+      .flat__features
+        .flat__feature Позиция №1
+        .flat__feature Отделка —
+          =' '
+          span.flat__val чистовая
+        .flat__feature Срок передачи —
+          =' '
+          span.flat__val II кв. 2022
+      .flat__price Стоимость
+         .flat__price-wrap
+          .flat__price-old 7 853 300 руб.
+          .flat__price-curr 7 650 000 руб.
+      .flat__features
+        .flat__feature Дом —
+          =' '
+          span.flat__val 51
+        .flat__feature Подъезд —
+          =' '
+          span.flat__val 2
+        .flat__feature Этаж —
+          =' '
+          span.flat__val 8
+        .flat__feature Номер квартиры —
+          =' '
+          span.flat__val 125
+        .flat__feature Площадь (кв. м) —
+          =' '
+          span.flat__val 86.3
+            sup *
+            | / 46.4 / 13.5
+      .flat__footnote
+        sup *
+        | Общая площадь с учетом площади балконов, определяемой с коэффициентом 0,3 и площади лоджий, определяемой коэффициентом 0,5.
+      .flat__footnote.flat__footnote--mob-xs Содержание страницы носит исключительно информационный характер и ни при каких условиях не является публичной офертой.
+    .flat__info
+      .flat__logo
+        img(src='img/flat-logo.webp' alt)
+      .flat__links
+        a.flat__link(href='#')
+          .flat__link-icon
+            img(src='img/flat-link-1.svg' alt)
+          .flat__link-title Жилой комплекс «ДИМИТРОВСКИЙ»
+        a.flat__link(href='#')
+          .flat__link-icon
+            img(src='img/flat-link-2.svg' alt)
+          .flat__link-title.flat__link-title--red Спецпредложение!
+      .flat__buttons
+        a.flat__button(href='#')
+          img(src='img/flat_button-1.svg' alt)
+        a.flat__button(href='#')
+          img(src='img/flat_button-2.svg' alt)
+        a.flat__button(href='#')
+          img(src='img/flat_button-3.svg' alt)
+    block

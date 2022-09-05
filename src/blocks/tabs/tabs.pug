@@ -1,0 +1,79 @@
+mixin tabs(mods)
+  -
+    const baseName = 'tabs'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .tabs(class=allMods)&attributes(attributes)
+    block
+
+mixin tabs__head(headItems, mods, activeIndex)
+  -
+    const baseName = 'tabs__head'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const _activeIndex = activeIndex ? activeIndex : 0
+
+  .tabs__head(class=allMods)&attributes(attributes)
+    .tabs__current
+      span.tabs__current-text !{headItems[_activeIndex].text}
+      if headItems[_activeIndex].icon
+        .tabs__icon
+          img(src=headItems[_activeIndex].icon alt)
+    ul.tabs__list
+      each item, index in headItems
+        if item.text
+          li.tabs__button(class=(_activeIndex===index ? 'tabs__button--active' : '') class=(item.isPromotion ? 'tabs__button--promo' : '') data-name=item.name) !{item.text}
+            if item.icon
+              .tabs__icon
+                img(src=item.icon alt)
+        if item.link
+          li.tabs__button(class=(item.isPromotion ? 'tabs__button--promo' : ''))
+            a(href=item.href) !{item.link}
+            if item.icon
+              .tabs__icon
+                img(src=item.icon alt)
+    block
+
+mixin tabs__main(mods)
+  -
+    const baseName = 'tabs__main'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .tabs__main(class=allMods)&attributes(attributes)
+    block
+
+mixin tabs__content(mods)
+  -
+    const baseName = 'tabs__content'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .tabs__content(class=allMods)&attributes(attributes)
+    block

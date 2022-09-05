@@ -1,0 +1,23 @@
+mixin main-ban(mods)
+  -
+    const baseName = 'main-ban'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .main-ban(class=allMods)&attributes(attributes)
+    .main-ban__slider
+      .main-ban__wrapper.swiper-wrapper
+        -for(let i = 0; i < 5; i++)
+          .main-ban__slide.swiper-slide
+            img.main-ban__img.main-ban__img--desktop(src='img/main-ban.webp', alt)
+            img.main-ban__img.main-ban__img--mobile(src='img/main-ban-mob.webp', alt)
+      .main-ban__button.main-ban__button--prev
+      .main-ban__button.main-ban__button--next
+    .main-ban__scrollbar
+    block

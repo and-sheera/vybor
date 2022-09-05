@@ -1,0 +1,316 @@
+-
+  let headerData = {
+    callback: {
+      schedule: [
+        'пн-чт: 09:00 - 18:00',
+        'пт: 09:00 - 17:00',
+        'сб: 10:00 - 17:00',
+        'вс: выходной',
+      ],
+      links: [
+        {
+          icon: 'img/icon-vk.svg',
+          link: 'https://vk.com/vyborstroiru',
+        },
+        {
+          icon: 'img/icon-tg.svg',
+          link: 'https://t.me/vyborstroiru/',
+        },
+        {
+          icon: 'img/icon-yt.svg',
+          link: 'https://www.youtube.com/channel/UChw_Lee2dycKJcPI2_n6_Bg',
+        },
+      ],
+    },
+    leftMenu: [
+      {
+        name: 'Проекты',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Объекты',
+            link: '#',
+            submenu: [
+              {
+                name: 'ЖК «Новое Подгорное»',
+                link: '#',
+              },
+              {
+                name: 'ЖК «БЕЛАЯ ПТИЦА»',
+                link: '#',
+              },
+              {
+                name: 'ЖК «ДИМИТРОВСКИЙ»',
+                link: '#',
+              },
+            ],
+          },
+          {
+            name: 'Отделка',
+            link: '#',
+            submenu: [
+              {
+                name: 'Чистовая',
+                link: '#',
+              },
+              {
+                name: 'Черновая',
+                link: '#',
+              },
+            ],
+          },
+          {
+            name: 'Шоу-рум',
+            link: '#',
+          },
+          {
+            name: 'Коммерция',
+            link: '#',
+            submenu: [
+              {
+                name: 'Продажа',
+                link: '#',
+              },
+              {
+                name: 'Аренда',
+                link: '#',
+              },
+              {
+                name: 'Паркинг',
+                link: '#',
+              },
+              {
+                name: 'Кладовые',
+                link: '#',
+              },
+            ],
+          },
+          {
+            name: 'Участки',
+            link: '#',
+            submenu: [
+              {
+                name: 'Продажа',
+                link: '#',
+              },
+              {
+                name: 'Покупка',
+                link: '#',
+              },
+            ],
+          },
+          {
+            name: 'Реализованные',
+            link: '#',
+            submenu: [
+              {
+                name: 'Жилые дома и комплексы',
+                link: '#',
+              },
+              {
+                name: 'Объекты торгово-развлекательной сферы',
+                link: '#',
+              },
+              {
+                name: 'Социально значимые объекты',
+                link: '#',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Коммерция',
+        link: '#',
+      },
+    ],
+    rightMenu: [
+      {
+        name: 'О компании',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Наша деятельность',
+            link: '#',
+          },
+          {
+            name: 'Награды',
+            link: '#',
+          },
+          {
+            name: 'Соцответственность',
+            link: '#',
+          },
+          {
+            name: 'Подразделения',
+            link: '#',
+          },
+          {
+            name: 'Информация',
+            link: '#',
+          },
+          {
+            name: 'Вопросы и ответы',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Ипотека',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'ВЫБОР. Ипотека',
+            link: '#',
+          },
+          {
+            name: 'Военная ипотека',
+            link: '#',
+          },
+          {
+            name: 'Семейная ипотека',
+            link: '#',
+          },
+          {
+            name: 'Материнский капитал',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Новости',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Новости компании',
+            link: '#',
+          },
+          {
+            name: 'Видеообзоры',
+            link: '#',
+          },
+          {
+            name: 'Блог',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Акции',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Текущие акции',
+            link: '#',
+          },
+          {
+            name: 'Спецпредложения',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Иногородним',
+        link: '#',
+        innerMenu: [
+          {
+            name: 'Презентация Воронежа',
+            link: '#',
+          },
+        ],
+      },
+      {
+        name: 'Сервис',
+        link: '#',
+      },
+      {
+        name: 'Контакты',
+        link: '#',
+      },
+    ],
+  }
+
+header.header
+  .inner
+    .header__top
+      a.header__logo(href='/')
+        img(src='img/logo.svg', alt='')
+      .header__contacts
+        a.header__tel(href='tel:88005338138')
+          span 8 800 533 81 38
+        .header__address г. Воронеж, ул. Вл. Невского, 19
+      .header__search
+        form.header__search-block
+          input.header__search-input(type='text')
+          input.header__search-subm(type='submit', value='')
+      .header__call-btn
+        .header__call-drop
+          .header__call-title График работы call-центра:
+          .header__call-schedule
+            each item in headerData.callback.schedule
+              p !{item}
+          a.header__call-mail(href='mailto:info@vyborstroi.ru') info@vyborstroi.ru
+          .header__call-links
+            each item in headerData.callback.links
+              a.header__call-link(href=item.link target='_blank')
+                img(src=item.icon, alt='')
+      +ui-button('Выбрать квартиру', 'header, --ripple')(href='https://showcase.vyborstroi.ru/')
+      .header__burger-icon
+        span
+        span
+        span
+    .header__bottom
+      .header__m-call
+        .header__m-call-info
+          .header__m-call-title График работы call-центра:
+          .header__m-call-schedule пн-чт: 09:00 - 18:00; пт: 09:00 - 17:00
+            br
+            | сб: 10:00 - 17:00; вс: выходной
+        a.header__m-call-link(href='tel:88005338138')
+      .header__menus
+        ul.header__menu.header__menu--left
+          each item in headerData.leftMenu
+            li.header__item(class=item.innerMenu ? 'header__item--arrow' : '')
+              a.header__link(href=item.link) !{item.name}
+              if item.innerMenu
+                .header__drop
+                  ul.header__drop-inner
+                    li.header__item.header__item--parent
+                      button.header__back
+                      a.header__link(href=item.link) !{item.name}
+                    each subItem in item.innerMenu
+                      li.header__item(class=subItem.submenu ? 'header__item--arrow' : '')
+                        a.header__link(href=subItem.link) !{subItem.name}
+                        if subItem.submenu
+                          ul.header__submenu
+                            li.header__item.header__item--parent
+                              .header__back
+                              a.header__link(href=subItem.link) !{subItem.name}
+                            each link in subItem.submenu
+                              li.header__item
+                                a.header__link(href=link.link) !{link.name}
+        ul.header__menu.header__menu--right
+          each item in headerData.rightMenu
+            li.header__item(class=item.innerMenu ? 'header__item--arrow' : '')
+              a.header__link(href=item.link) !{item.name}
+              if item.innerMenu
+                .header__drop
+                  ul.header__drop-inner
+                    li.header__item.header__item--parent
+                      .header__back
+                      a.header__link(href=item.link) !{item.name}
+                    each subItem in item.innerMenu
+                      li.header__item(class=subItem.submenu ? 'header__item--arrow' : '')
+                        a.header__link(href=subItem.link) !{subItem.name}
+                        if subItem.submenu
+                          ul.header__submenu
+                            li.header__item.header__item--parent
+                              .header__back
+                              a.header__link(href=subItem.link) !{subItem.name}
+                            each link in subItem.submenu
+                              li.header__item
+                                a.header__link(href=link.link) !{link.name}
+      .header__m-btns
+        +ui-button('Выбрать квартиру')(href='https://showcase.vyborstroi.ru/')
+        +ui-button('Подписка на новости', '--light-blue')(href='#')
+    .header__shadow

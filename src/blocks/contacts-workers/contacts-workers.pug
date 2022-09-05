@@ -1,0 +1,24 @@
+mixin contacts-workers(mods)
+  -
+    const baseName = 'contacts-workers'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .contacts-workers(class=allMods)&attributes(attributes)
+    a.contacts-workers__item(href='javascript:void(0)' onclick='window.getPopup($(this))' data-src='#worker')
+      .contacts-workers__ava
+        img(src='img/contacts-workers-1.webp', alt)
+      .contacts-workers__name Чернявская Марина
+      .contacts-workers__job Руководитель отдела продаж
+    a.contacts-workers__item.contacts-workers__item--best(href='javascript:void(0)' onclick='window.getPopup($(this))' data-src='#worker')
+      .contacts-workers__ava
+        img(src='img/contacts-workers-2.webp', alt)
+      .contacts-workers__name Орловская Алёна
+      .contacts-workers__job Менеджер отдела продаж
+    +p-contacts-workers#worker(style='display: none;')

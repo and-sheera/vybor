@@ -1,0 +1,44 @@
+mixin catalog(mods)
+  -
+    const baseName = 'catalog'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .catalog(class=allMods)&attributes(attributes)
+    .catalog__title Жилой комплекс «ДИМИТРОВСКИЙ»
+    form.catalog__filter
+      .catalog__params
+        .catalog__param
+          .catalog__label Дом / Позиция
+          +ui-select('catalog', 'Все', 'Позиция №1', 'Позиция №2')
+        .catalog__param
+          .catalog__label Кол-во комнат
+          +ui-select('catalog', 'Все', '3', '2')
+        .catalog__param
+          .catalog__label Отделка
+          +ui-select('catalog', 'Все', 'Чистовая')
+      .catalog__sort
+        .catalog__label Сортировать по
+        .catalog__sort-wrap
+          +ui-select('catalog', 'Стоимости вверх', 'Стоимости вниз')
+          +ui-select('catalog', 'Площади вверх', 'Площади вниз')
+      .catalog__ranges
+        .catalog__range
+          .catalog__label Этаж
+          +ui-range('от', 'до')(data-min='1' data-max='17')
+        .catalog__range
+          .catalog__label Стоимость, руб.
+          +ui-range('от', 'до')(data-min='6335600' data-max='7734100')
+      .catalog__total
+        +ui-button('Сбросить', 'catalog')
+        .catalog__count Предложений: 18
+    .catalog__container
+      -for(let i=0; i<5; i++)
+        +catalog-item('catalog')
+  block

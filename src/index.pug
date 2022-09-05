@@ -1,0 +1,525 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageTitle ='Index'
+
+    const dataNews = [
+      {
+        img: 'img/news-1.webp',
+        date: '17.08.2022',
+        title: 'Поздравляем с новосельем!',
+        button: 'Подробнее',
+        href: '#',
+      },
+      {
+        img: 'img/news-2.webp',
+        date: '04.08.2022',
+        title: 'Старт продаж ЖМ "Новое Отрадное" 13 позиция!',
+        button: 'Подробнее',
+        href: '#',
+      },
+    ]
+
+    const dataNews2 = [
+      {
+        img: 'img/news-1.webp',
+        title: 'Поздравляем с новосельем!',
+        button: 'Подробнее',
+        href: '#',
+      },
+      {
+        img: 'img/news-2.webp',
+        title: 'Старт продаж ЖМ "Новое Отрадное" 13 позиция!',
+        button: 'Подробнее',
+        href: '#',
+      },
+      {
+        img: 'img/news-1.webp',
+        title: 'Поздравляем с новосельем!',
+        button: 'Подробнее',
+        href: '#',
+      },
+      {
+        img: 'img/news-2.webp',
+        title: 'Старт продаж ЖМ "Новое Отрадное" 13 позиция!',
+        button: 'Подробнее',
+        href: '#',
+      },
+      {
+        img: 'img/news-2.webp',
+        title: 'Старт продаж ЖМ "Новое Отрадное" 13 позиция!',
+        button: 'Подробнее',
+        href: '#',
+      },
+    ]
+
+    const builtObjectsData = [
+      {
+        img: 'img/built-objects-1.webp',
+        topDescrXs: 'Жилые дома и комплексы',
+        title: 'в Воронеже',
+        href: '#',
+      },
+      {
+        img: 'img/built-objects-2.webp',
+        topDescrXs: 'Объекты торгово-развлекательной сферы',
+        title: 'в Воронеже',
+        href: '#',
+      },
+      {
+        img: 'img/built-objects-3.webp',
+        topDescrXs: 'Социально значимые объекты',
+        title: 'в Воронеже и области',
+        href: '#',
+      },
+    ]
+
+    const roomsNumberData = [
+      {
+        img: 'img/rooms-number-1.webp',
+        title: '1-комнатные',
+        href: '#',
+      },
+      {
+        img: 'img/rooms-number-2.webp',
+        title: '2-комнатные',
+        href: '#',
+      },
+      {
+        img: 'img/rooms-number-3.webp',
+        title: '3-комнатные',
+        href: '#',
+      },
+    ]
+
+    const promotionsData = [
+      {
+        img: 'img/promotions-1.webp',
+        topTitle: 'Своя квартира по цене арендной!',
+        descr: 'Эксклюзивное предложение для участников программы переселения с территории комплекса «Байконур»',
+        button: 'Подробнее',
+        href: '#'
+      },
+      {
+        img: 'img/promotions-2.webp',
+        topTitle: 'Рассрочка 0%!',
+        descr: 'Оформите ипотеку на выгодных условиях!',
+        button: 'Подробнее',
+        href: '#'
+      },
+    ]
+
+    const facilityData = [
+      {
+        img: 'img/facility-1.webp',
+        label: '% АКЦИЯ',
+        topDescrXs: 'Жилой комплекс',
+        title: '«ДИМИТРОВСКИЙ»',
+        botDescrXs: 'ул. Димитрова, 51',
+        addition: {
+          topDescrXs: 'чистовая отделка',
+          price: 'от 6 336 000 руб.',
+        },
+        href: '#',
+      },
+      {
+        img: 'img/facility-2.webp',
+        topDescrXs: 'Жилой комплекс',
+        title: '«Новое Подгорное»',
+        botDescrXs: 'ул. Серафима Саровского',
+        addition: {
+          topDescrXs: 'чистовая отделка',
+          price: 'от 5 800 000 руб.',
+        },
+        href: '#',
+      },
+    ]
+
+    const facilityDataAnother = [
+      {
+        img: 'img/facility-1.webp',
+        label: '% АКЦИЯ',
+        title: '«ДИМИТРОВСКИЙ»',
+        botDescrXs: 'чистовая отделка',
+        price: 'от 6 336 000 руб.',
+        href: '#',
+      },
+      {
+        img: 'img/facility-2.webp',
+        title: '«Новое Подгорное»',
+        botDescrXs: 'чистовая отделка',
+        price: 'от 5 800 000 руб.',
+        href: '#',
+      },
+    ]
+
+    const benefitsData1 = [
+      {
+        icon: 'img/benefit-0.svg',
+        descr: 'собственное <br> производство',
+      },
+      {
+        icon: 'img/benefit-1.svg',
+        descr: '70 блок-комнат <br> на&nbsp;заводе за&nbsp;один день',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        descr: '1 этаж = 1 день <br> на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        descr: 'более 336 000 кв.м <br> жилья ежегодно',
+      },
+    ]
+
+    const benefitsData2 = [
+      {
+        icon: 'img/benefit-1.svg',
+        descr: '70 блок-комнат <br> на&nbsp;заводе за&nbsp;один день',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        descr: '1 этаж = 1 день <br> на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        descr: 'более 336 000 кв.м <br> жилья ежегодно',
+      },
+      {
+        icon: 'img/benefit-1.svg',
+        descr: '70 блок-комнат <br> на&nbsp;заводе за&nbsp;один день',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        descr: '1 этаж = 1 день <br> на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        descr: 'более 336 000 кв.м <br> жилья ежегодно',
+      },
+    ]
+
+    const benefitsData3 = [
+      {
+        icon: 'img/benefit-1.svg',
+        descr: '70 блок-комнат <br> на&nbsp;заводе за&nbsp;один день',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        descr: '1 этаж = 1 день <br> на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        descr: 'более 336 000 кв.м <br> жилья ежегодно',
+      },
+      {
+        icon: 'img/benefit-1.svg',
+        descr: '70 блок-комнат <br> на&nbsp;заводе за&nbsp;один день',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        descr: '1 этаж = 1 день <br> на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        descr: 'более 336 000 кв.м <br> жилья ежегодно',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        descr: '1 этаж = 1 день <br> на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        descr: 'более 336 000 кв.м <br> жилья ежегодно',
+      },
+    ]
+
+    const benefitsData4 = [
+      {
+        icon: 'img/benefit-1.svg',
+        title: 'Команда',
+        descr: 'Мы – команда профессионалов, объединенных одной целью. Каждый сотрудник важен и влияет на общий результат. Мы уважаем, доверяем и поддерживаем друг друга. Сила нашей команды в Единстве!',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        title: 'Ответственность',
+        descr: '1 этаж = 1 день на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        title: 'Развитие',
+        descr: 'более 336 000 кв.м жилья ежегодно',
+      },
+    ]
+
+    const benefitsData5 = [
+      {
+        icon: 'img/benefit-1.svg',
+        title: 'Команда',
+        descr: 'Мы – команда профессионалов, объединенных одной целью. Каждый сотрудник важен и влияет на общий результат.',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        title: 'Ответственность',
+        descr: '1 этаж = 1 день на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        title: 'Развитие',
+        descr: 'более 336 000 кв.м жилья ежегодно',
+      },
+      {
+        icon: 'img/benefit-1.svg',
+        title: 'Команда',
+        descr: 'Каждый сотрудник важен и влияет на общий результат.',
+      },
+      {
+        icon: 'img/benefit-2.svg',
+        title: 'Ответственность',
+        descr: '1 этаж = 1 день на&nbsp;строительной площадке',
+      },
+      {
+        icon: 'img/benefit-3.svg',
+        title: 'Развитие',
+        descr: 'более 336 000 кв.м жилья ежегодно',
+      },
+    ]
+
+    const tabsHead1 = [
+      {
+        icon: 'img/tab-1.svg',
+        text: 'Описание',
+        name: 'descr'
+      },
+      {
+        icon: 'img/tab-2.svg',
+        text: 'Генплан',
+        name: 'plan'
+      },
+      {
+        icon: 'img/tab-3.svg',
+        text: 'Квартиры',
+        name: 'flats'
+      },
+      {
+        icon: 'img/tab-4.svg',
+        link: 'Ссылка',
+        href: '/'
+      },
+      {
+        icon: 'img/tab-5.svg',
+        link: 'Акции',
+        href: '/', isPromotion: true
+      },
+    ]
+
+block content
+  main
+    .inner
+      +breadcrumbs
+        +breadcrumbs-item('Главная', '/')
+        +breadcrumbs-item('О компании', '#')
+        +breadcrumbs-item('Информация', '#')
+        +breadcrumbs-item('Специальная оценка условий труда')
+      +section
+        +main-ban
+      +section
+        +ui-h2('Список новостей', '--mb, --text-center')
+        +product-list('--news')
+          -for(i=0; i<3; i++)
+            each item in dataNews
+              +product(item)(href=item.href)
+      +section
+        +ui-h2('Сданные объекты строительной компании «ВЫБОР». Готовые новостройки от застройщика.', '--mb')
+        +product-list('--built-objects')
+          each item in builtObjectsData
+            +product(item)(href=item.href)
+      +section
+        +ui-h2('Количество комнат', '--mb')
+        +product-list('--rooms-number')
+          each item in roomsNumberData
+            +product(item)(href=item.href)
+      +section
+        +ui-h2('Текущие акции', '--mb, --medium')
+        +product-list('--promotions')
+          each item in promotionsData
+            +product(item)(href=item.href)
+      +section
+        +ui-h2('Квартиры в Воронеже от застройщика «ВЫБОР» недорого, купить новую квартиру под ключ по цене застройщика, сдача в 2022 и 2023 годах, официальный сайт строительной компании', '--medium')
+        +product-list('--facility')
+          +product-list__count('Проектов: 8')
+          -for(i=0; i<3; i++)
+            each item in facilityData
+              +product(item)(href=item.href)
+      +section
+        +ui-h2('Специальная оценка условий труда', '--mb, --medium')
+        +section('--inner')
+          +cover('img/cover.webp', '% АКЦИЯ')
+        +section('--inner')
+          +cover('img/cover.webp')
+            +cover__caption('Подпись к фото')
+      +section
+        +ui-h3('Коммерческая недвижимость, нежилые и торговые помещения в Воронеже по лучшим ценам от застройщика | «ВЫБОР»', '--mb, --medium')
+        +section('--inner')
+          +ui-text
+            p Строительная компания «ВЫБОР» реализует объекты коммерческой недвижимости от застройщика в Воронеже. У нас вы можете приобрести или арендовать помещения для организации торговой зоны или размещения офисов. Развитая инфраструктура в районе застройки, современные инженерные коммуникации, фасад, адаптированный под вывод системы кондиционирования – мы предоставляем удобные условия для ведения бизнеса.
+        +section('--inner')
+          +cover('img/cover-link.webp')(href='#')
+        +section('--inner')
+          +ui-text
+            +ui-text__date('20.05.2020')
+            p Специальная оценка условий труда — единый комплекс мероприятий по идентификации вредных факторов производственной среды и трудового процесса. В ходе оценки определяется уровень их воздействия на работника с учетом отклонения фактических значений от установленных нормативов условий труда.
+            p Согласно п.6. статьи 15 Федерального закона от 28.12.2013 г. №426-ФЗ
+              =' '
+              a.text-blue(href='#') «О специальной оценке условий труда»
+              |  компания «ВЫБОР», с учетом требований законодательства Российской Федерации о персональных данных и законодательства Российской Федерации о государственной и об иной охраняемой законом тайне, публикует сводные данные о результатах проведения специальной оценки условий труда (далее – СОУТ) в части установления классов (подклассов) условий труда на рабочих местах и перечня мероприятий по улучшению условий и охраны труда работников, на рабочих местах которых проводилась СОУТ
+            p
+              b ООО «ИНЖЕНЕРПРОЕКТ» осуществляет следующие виды работ:
+            +ui-ul
+              li предварительный анализ земельных участков
+              li проекты планировки и межевания территории
+              li разработку архитектурных решений зданий
+              li разработку проектной и рабочей документаций
+              li проектирование инженерных сетей и сооружений
+              li кадастровые работы
+        +section('--inner')
+          +ui-text
+            +ui-text__wrapper
+              +ui-text__content
+                +ui-h4('Воронеж, Индустриальный парк «Масловский» ул. Солдатское поле, 285/8', '--mb, --medium')
+                p 20 мая 2015 г. состоялся торжественный запуск завода «ВЫБОР-ОБД».
+                p «ВЫБОР-ОБД» – единственное в России предприятие с уникальной технологией объемно-блочного домостроения, позволяющей в рекордные сроки возводить надежные многоэтажные дома с качественной отделкой – целый этаж всего за один день!
+                p Данная технология – принципиально новое слово в строительной сфере. Теперь основные процессы осуществляются в заводских условиях, что позволяет повышать качество квартир, существенно сокращать сроки строительства, автоматизировать циклы производства и быть независимыми от погоды.
+                p Завод «ВЫБОР-ОБД» функционирует абсолютно автономно. Это самостоятельный, грамотно налаженный, не допускающий сбоев, механизм, где каждая его деталь работает четко, взаимодействуя с другими элементами.
+                p Компания «ВЫБОР» – правообладатель уникальной технологии объемно-блочного домостроения. Интеллектуальные права защищены патентом, все изделия прошли сертификацию качества.
+              +ui-text__video
+                .js-custom-player
+                  iframe(frameborder='0' src='https://www.youtube.com/embed/9ZqWMWsxtAw?ecver=1&modestbranding=1&playsinline=1')
+        +section('--inner')
+          +ui-text
+            +ui-text__wrapper
+              +ui-text__content
+                +ui-h4('Характеристики проекта:', '--mb, --medium')
+                +ui-ul
+                  li предварительный анализ земельных участков
+                  li проекты планировки и межевания территории
+                  li разработку архитектурных решений зданий
+              +ui-text__content
+                 +ui-h4('Виртуальный тур', '--mb, --medium')
+                 +vr-tour
+        +section('--inner')
+          +documents
+        +section('--inner')
+          +share
+        +section('--inner')
+          +slider
+            -for(i=0; i<8; i++)
+              +slider__img('img/gallery_img-small.webp', 'img/gallery_img-big.webp')(data-fancybox='gallery-1')
+        +section('--inner')
+          +navigation
+      +section
+        +ui-h4('Вас могут заинтересовать новости', '--medium, --mb')
+        +product-list('--similar')
+          each item in dataNews2
+            +product(item)(href=item.href)
+      +section
+        +tabs
+          +tabs__head(tabsHead1)
+          +tabs__main
+            +tabs__content('--active')
+              +ui-text('Внутренние табы')
+              +tabs('--xs')
+                +tabs__head([ {text: 'ЖК «ОЗЕРКИ»'}, {text: 'Детский сад'}, {text: 'Школа'}, {text: 'Магазин'}, {text: 'Позиция 22'}, {text: 'Позиция 24'}, ])
+                +tabs__main
+                  +tabs__content('--active')
+                    +ui-text('Контент 1')
+                  +tabs__content
+                    +ui-text('Контент 2')
+                  +tabs__content
+                    +ui-text('Контент 3')
+                  +tabs__content
+                    +ui-text('Контент 4')
+                  +tabs__content
+                    +ui-text('Контент 5')
+                  +tabs__content
+                    +ui-text('Контент 6')
+              +ui-text
+                p Специальная оценка условий труда — единый комплекс мероприятий по идентификации вредных факторов производственной среды и трудового процесса. В ходе оценки определяется уровень их воздействия на работника с учетом отклонения фактических значений от установленных нормативов условий труда.
+                p Согласно п.6. статьи 15 Федерального закона от 28.12.2013 г. №426-ФЗ
+            +tabs__content
+              +ui-text
+                +ui-ul
+                  li предварительный анализ земельных участков
+                  li проекты планировки и межевания территории
+            +tabs__content
+              +ui-text
+                +ui-ul
+                  li проектирование инженерных сетей и сооружений
+                  li кадастровые работы
+      +section
+        +benefits(benefitsData1)
+      +section#link
+        +benefits(benefitsData5, '--big, --grey-title')
+      +section
+        +benefits(benefitsData2, '--col-6')
+      +section
+        +benefits(benefitsData3, '--borders')
+      +section
+        +benefits(benefitsData4, '--rows')
+      +section
+        +catalog
+        +pagination
+      +section
+        +section-head
+          +ui-h2('Другие проекты')
+          +ui-button('Все проекты')(href='#')
+        +slider('--shadows')
+          -for(i=0; i<3; i++)
+            each item in facilityDataAnother
+              +product(item, '--xs').swiper-slide(href=item.href)
+      +section
+        +quotes
+      +section
+        +ui-h2('Партнёры', '--medium, --mb')
+        +partners
+      +section
+        +ui-h2('Отдел гарантийного обслуживания и сервиса', '--medium, --mb')
+        +business-card
+      +section
+        +ui-h3('ОТПРАВИТЬ ОБРАЩЕНИЕ', '--medium, --uppercase, --mb')
+        +form
+      +section
+        +ui-table
+      +section
+        +map
+      +section
+        +ui-h3('Контакты', '--mb')
+        +section('--inner')
+          +ui-text('', '--fw-normal')
+            span.text-red График работы офисов продаж и call-центра
+            =' '
+            a(href='#') скорректирован
+        +section('--inner')
+          +slider
+            -for(i=0; i<4; i++)
+              +slider__img('img/gallery_img-small.webp', 'img/gallery_img-big.webp')(data-fancybox='gallery-2')
+        +section('--inner')
+          +contacts
+      +section
+        +ui-h2('Видеообзоры', '--mb')
+        +video-reviews
+      +section
+        +section('--inner')
+          +ui-h2('3 - комнатная квартира', '--mb, --medium')
+          +flat
+        +section('--inner')
+          +ui-h4('Похожие квартиры:', '--mb, --medium')
+          +slider('--per-view-3, --shadows')
+            -for(i=0; i<4; i++)
+              +catalog-item('', true).swiper-slide
+      +section
+        +apartment-layout
+      +section
+        +page-404
+  +cookies

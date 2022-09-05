@@ -1,0 +1,18 @@
+mixin documents(mods)
+  -
+    const baseName = 'documents'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .documents(class=allMods)&attributes(attributes)
+    -for(let i=0; i<3; i++)
+      .documents__item
+        .documents__name Отчет ООО СЗ «ВЫБОР» (28.07.2020)
+        +ui-button('Скачать в PDF', 'documents, --ripple')(href='#')
+    block

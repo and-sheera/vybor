@@ -1,0 +1,76 @@
+mixin ui-text(text, mods)
+  -
+    const baseName = 'ui-text'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-text(class=allMods)&attributes(attributes)
+    if text
+      | !{text}
+    block
+
+mixin ui-text__date(text, mods)
+  -
+    const baseName = 'ui-text__date'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-text__date(class=allMods)&attributes(attributes) !{text}
+    block
+
+mixin ui-text__wrapper(mods)
+  -
+    const baseName = 'ui-text__wrapper'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-text__wrapper(class=allMods)&attributes(attributes)
+    block
+
+mixin ui-text__video(mods)
+  -
+    const baseName = 'ui-text__video'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-text__video(class=allMods)&attributes(attributes)
+    block
+
+mixin ui-text__content(mods)
+  -
+    const baseName = 'ui-text__content'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-text__content(class=allMods)&attributes(attributes)
+    block
