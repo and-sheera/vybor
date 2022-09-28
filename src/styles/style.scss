@@ -1,6 +1,10 @@
-@import '../libs/select2/select2.css';
-@import '../libs/fancybox/fancybox.css';
-@import '../libs/swiper/swiper-bundle.css';
-@import '../libs/ion-rangeslider/ion-rangeslider.css';
-@import '../libs/plyr/plyr.css';
-@import 'main.css';
+@import 'utils/variables';
+@import 'utils/media';
+@import 'utils/fonts';
+@import 'utils/layout';
+@import '../blocks/_ui/**/*';
+@import '../blocks/breadcrumbs/breadcrumbs';
+@import '../blocks/loader/loader';
+@import '../blocks/header/*';
+@import '../blocks/footer/*';
+@import '../blocks/section/section';
